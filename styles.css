@@ -1,0 +1,262 @@
+:root {
+  /* colors  */
+  --neutral-1: hsl(0, 0%, 8%);
+  --accent-1: hsl(153, 71%, 59%);
+  --neutral-2: hsl(0, 0%, 14%);
+  --neutral-3: hsl(0, 0%, 85%);
+  --neutral-4: hsl(0, 0%, 100%);
+
+  /* font sizes  */
+  /* headings  */
+  --headings-xl: 5.5rem;
+  --headings-l: 3rem;
+  --headings-m: 1.5rem;
+
+  /* paragraph  */
+  --fs-regular: 1rem;
+
+  /* font weight  */
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+/* CSS RESET BY JOSH COMEAU*/
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.56;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* GLOBAL STYLES */
+
+body {
+  font-size: var(--fs-regular);
+  background-color: var(--neutral-1);
+  color: var(--neutral-4);
+  font-family: "Space Grotesk", serif;
+}
+
+.wrapper {
+  margin-inline: 1rem;
+}
+
+/* HEADER STYLES */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.header__logo {
+  display: inline-block;
+  font-size: var(--headings-m);
+}
+
+.header__socials {
+  display: inline-block;
+  margin-inline: 0.8125rem;
+}
+
+a.header__socials:hover svg path {
+  fill: var(--accent-1);
+  transition: fill ease-in 1s;
+}
+
+.hero {
+  margin-top: 21.438rem;
+  flex-direction: column;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero__image {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  translate: 50%;
+}
+
+.hero__text {
+  text-align: center;
+  line-height: 1;
+  font-size: 2.5rem;
+}
+
+span.hero__name {
+  /* border-block-end: .375rem solid var(--accent-1); */
+  position: relative;
+}
+
+span.hero__name::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+
+  /* background-color: var(--c-title-underline-color); */
+  background: var(--accent-1);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.hero_paragraph {
+  text-align: center;
+}
+
+.hero__contact {
+  text-decoration: none;
+  color: var(--neutral-4);
+  text-transform: uppercase;
+  letter-spacing: 0.1431rem;
+  font-weight: var(--fw-bold);
+  border-bottom: 2px solid var(--accent-1);
+  padding-block-end: 0.625rem;
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 37.5em) {
+  .wrapper {
+    margin-inline: 32px;
+  }
+
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .hero {
+    margin-top: 5.625rem;
+    margin-bottom: 12.5rem;
+    width: 27.8125rem;
+    gap: 0;
+  }
+
+  .hero__image {
+    top: 0;
+    right: 0;
+    translate: 0;
+    z-index: -1;
+  }
+
+  .header__socials {
+    margin-inline: 1rem;
+  }
+
+  span.hero__name::after {
+    height: 6px;
+    bottom: 4px;
+  }
+  .hero_paragraph {
+    text-align: start;
+    margin-top: 3.75rem;
+  }
+
+  .hero picture img {
+    width: 21.875rem;
+    height: auto;
+  }
+
+  .hero__text {
+    text-align: start;
+    font-size: 4.5rem;
+  }
+
+  .hero__contact {
+    margin: 0;
+    align-self: flex-start;
+    margin-top: 2.125rem;
+  }
+}
+
+@media (min-width: 58.75em) {
+  .hero picture img {
+    width: 27.8125rem;
+    height: auto;
+  }
+}
+
+/* SKILLS STYLES*/
+.skills {
+  border-top: 0.0625rem solid var(--neutral-4);
+  border-bottom: 0.0625rem solid var(--neutral-4);
+  padding-block: 40px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+@media (min-width: 37.5em) {
+}
+
+@media (min-width: 58.75em) {
+}
