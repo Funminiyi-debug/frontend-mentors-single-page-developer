@@ -97,8 +97,14 @@ body {
   background-color: var(--neutral-1);
   color: var(--neutral-4);
   font-family: "Space Grotesk", serif;
-  width: 100vw;
+  max-width: 90rem; /* Set a max-width for the content */
+  margin: 0 auto;
+  position: relative;
 }
+
+/* .container {
+  position: relative;
+} */
 
 .wrapper {
   padding-inline: 1rem;
