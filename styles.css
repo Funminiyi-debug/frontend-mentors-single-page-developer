@@ -37,6 +37,7 @@ body {
   line-height: 1.56;
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* 5. Improve media defaults */
@@ -96,10 +97,11 @@ body {
   background-color: var(--neutral-1);
   color: var(--neutral-4);
   font-family: "Space Grotesk", serif;
+  width: 100vw;
 }
 
 .wrapper {
-  margin-inline: 1rem;
+  padding-inline: 1rem;
 }
 
 /* HEADER STYLES */
@@ -110,6 +112,10 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
+}
+
+.header {
+  margin-top: 1.25rem;
 }
 
 .header__logo {
@@ -127,6 +133,7 @@ a.header__socials:hover svg path {
   transition: fill ease-out 1s;
 }
 
+/* HERO SECTION */
 .hero {
   margin-top: 21.438rem;
   flex-direction: column;
@@ -200,7 +207,8 @@ span.hero__name::after {
     margin-inline: 2rem;
   }
 
-  .header {
+  .header,
+  .footer {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -208,8 +216,10 @@ span.hero__name::after {
   .hero {
     margin-top: 5.625rem;
     margin-bottom: 12.5rem;
-    width: 27.8125rem;
+    width: max(27.813rem, 62%);
     gap: 0;
+    padding-inline-end: 0;
+    margin-inline-end: 0;
   }
 
   .hero__image {
@@ -240,6 +250,7 @@ span.hero__name::after {
   .hero__text {
     text-align: start;
     font-size: 4.5rem;
+    width: 100%;
   }
 
   .hero__contact {
@@ -250,6 +261,15 @@ span.hero__name::after {
 }
 
 @media (min-width: 58.75em) {
+  .wrapper {
+    padding-inline: 10.31rem;
+  }
+
+  .hero {
+    margin-top: 5.625rem;
+    margin-bottom: 18.5rem;
+    padding-inline-end: 0;
+  }
   .hero picture img {
     width: 27.8125rem;
     height: auto;
@@ -259,15 +279,22 @@ span.hero__name::after {
     right: 10.3125rem;
   }
 
-  .wrapper {
-    margin-inline: 10.31rem;
+  .hero__contact {
+    margin-top: 4.125rem;
+  }
+
+  .hero__text {
+    width: 100%;
+    max-width: 44.125rem;
+  }
+
+  .hero_paragraph {
+    width: 60%;
   }
 }
 
 /* SKILLS STYLES*/
 .skills {
-  border-top: 1px solid var(--neutral-4);
-  border-bottom: 1px solid var(--neutral-4);
   padding-block: 2.5rem;
   margin-block: 5rem;
   display: grid;
@@ -285,17 +312,22 @@ span.hero__name::after {
 @media (min-width: 37.5em) {
   .skills {
     column-gap: 0;
-    justify-items: center;
+    justify-items: flex-start;
     grid-template-columns: 1fr 1fr;
+    border: none;
+    text-align: left;
   }
 }
 
 @media (min-width: 58.75em) {
   .skills {
     column-gap: 0;
-    justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
     border-bottom: none;
+  }
+
+  .skills__item h1 {
+    font-size: var(--headings-l);
   }
 }
 
@@ -399,6 +431,12 @@ span.hero__name::after {
   padding-top: 3.3125rem;
 }
 
+.contact__information,
+.contact__form {
+  max-width: 27.813rem;
+  margin: auto;
+}
+
 .contact__information {
   text-align: center;
 }
@@ -451,6 +489,7 @@ span.hero__name::after {
   margin-top: 2rem;
   margin-inline: 0;
   justify-self: flex-end;
+  cursor: pointer;
 }
 
 .footer {
@@ -469,6 +508,148 @@ span.hero__name::after {
 @media (min-width: 58.75em) {
   .contact {
     padding-top: 5.25rem;
-    padding-inline: 16rem;
+    padding-inline: 10.31rem;
+  }
+
+  .contact__item {
+    position: relative;
+    display: flex;
+    gap: 5%;
+  }
+
+  .contact__information {
+    display: inline-block;
+    text-align: left;
+    align-self: flex-start;
+    margin-top: 0;
+  }
+
+  .contact__form {
+    margin: 0;
+    width: 50%;
+  }
+
+  .contact__information__title {
+    text-align: left;
+    font-size: var(--headings-xl);
+  }
+}
+
+/* DECORATIVE STYLES */
+.hero .pattern__rings {
+  position: absolute;
+  top: 7.375rem;
+  left: 0;
+  translate: -50%;
+  z-index: -2;
+}
+
+.hero .pattern__circle {
+  position: absolute;
+  top: 15.875rem;
+  right: 0;
+  translate: 50%;
+}
+
+.skills {
+  position: relative;
+}
+.skills .pattern__rings1 {
+  position: absolute;
+  top: 18.75rem;
+  translate: -90%;
+  height: 8rem;
+  width: auto;
+}
+
+.skills .pattern__rings2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  translate: 50% 50%;
+  height: 8rem;
+  width: auto;
+}
+
+.contact {
+  position: relative;
+}
+
+.contact .pattern__rings {
+  position: absolute;
+  top: 30.35rem;
+  right: 0;
+  translate: -50%;
+}
+
+.skills::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: var(--neutral-4);
+  width: calc(100% - 2rem);
+  right: 1rem;
+  top: 0;
+}
+.skills::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: var(--neutral-4);
+  width: calc(100% - 2rem);
+  right: 1rem;
+  bottom: 0;
+}
+
+@media (min-width: 37.5em) {
+  .hero .pattern__rings {
+    top: 4.375rem;
+  }
+
+  .hero .pattern__circle {
+    top: 32.7rem;
+  }
+
+  .skills .pattern__rings1 {
+    display: none;
+  }
+
+  .skills .pattern__rings2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    translate: 60% 30%;
+    height: 8rem;
+    width: auto;
+  }
+
+  .skills::after {
+    display: none;
+  }
+
+  .contact .pattern__rings {
+    top: 37.35rem;
+    left: 0;
+    translate: -65%;
+  }
+}
+@media (min-width: 58.75em) {
+  .hero .pattern__rings {
+    top: 4.375rem;
+    translate: -25%;
+  }
+
+  .contact .pattern__rings {
+    top: 18.35rem;
+    translate: -50%;
+  }
+  .hero .pattern__circle {
+    top: 28.7rem;
+    right: 23.75rem;
+    translate: -130%;
+  }
+  .skills::before {
+    right: 10.31rem;
+    width: calc(100% - (10.31rem * 2));
   }
 }
